@@ -1,9 +1,18 @@
 use std::process::Command;
 use chrono::Local;
+use std::env;
 
 fn main() {
     // Get the current date in MM/DD/YYYY format
     let date = Local::now().format("%m/%d/%Y").to_string();
+
+    // Check for command line arguments
+    let args: Vec<String> = env::args().collect();
+    let message = if args.len() > 1 {
+        &args[1]
+    } else {
+        &date
+    };
 
     // Execute git add .
     let add_output = Command::new("git")
@@ -21,7 +30,7 @@ fn main() {
     let commit_output = Command::new("git")
         .arg("commit")
         .arg("-m")
-        .arg(&date)
+        .arg(message)
         .output()
         .expect("Failed to execute git commit");
 
