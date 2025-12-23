@@ -47,21 +47,43 @@ Add the directory to your PATH:
 
 Navigate to your git repository and make changes.
 
-### Default (Date as commit message)
+### Default (All files, date as commit message)
 ```bash
 bezan
 ```
-Output:
-`git commit -m "12/23/2025"`
+Commits all changes with today's date.
 
-### Custom Commit Message
+### Custom Commit Message (All files)
 ```bash
 bezan "My custom commit message"
 ```
-Output:
-`git commit -m "My custom commit message"`
+Commits all changes with a custom message.
 
-The tool will stage all changes, commit (with date or custom message), and push to the remote repository.
+### Single File (Date as commit message)
+```bash
+bezan testfile.py
+```
+Commits only `testfile.py` with today's date.
+
+### Single File (Custom message)
+```bash
+bezan testfile.py "Fixed bug in test"
+```
+Commits only `testfile.py` with a custom message.
+
+### Multiple Files (Date as commit message)
+```bash
+bezan file1.py file2.js
+```
+Commits only the specified files with today's date.
+
+### Multiple Files (Custom message)
+```bash
+bezan file1.py file2.js "Updated multiple files"
+```
+Commits only the specified files with a custom message.
+
+The tool will stage the specified changes, commit, and push to the remote repository.
 Upon success, you will see a success message in the terminal.
 
 Contributions are welcomed!
