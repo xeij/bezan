@@ -11,7 +11,6 @@ The commit message defaults to the current date in `MM/DD/YYYY` format (e.g., `0
 - Supports custom commit messages via command-line arguments.
 - Cross-platform: works on Windows, macOS, and Linux.
 - Error handling for Git command failures.
-- Open pull requests
 
 ## Prerequisites
 
@@ -69,6 +68,7 @@ Contributions are welcomed!
 -fork the repo
 -create feature branch
 -commit changes (yes use bezan)
+-open pull request
 
 
 
