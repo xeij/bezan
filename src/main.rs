@@ -3,11 +3,17 @@ use chrono::Local;
 use std::env;
 
 fn main() {
-    // Get the current date in MM/DD/YYYY format
-    let date = Local::now().format("%m/%d/%Y").to_string();
-
     // Parse command line arguments
     let args: Vec<String> = env::args().skip(1).collect();
+
+    // Check for version flag
+    if args.len() == 1 && (args[0] == "--version" || args[0] == "-v") {
+        println!("bezan v1.2");
+        return;
+    }
+
+    // Get the current date in MM/DD/YYYY format
+    let date = Local::now().format("%m/%d/%Y").to_string();
     
     // Separate files from message
     let (files, message) = parse_arguments(&args, &date);
